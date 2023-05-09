@@ -11,7 +11,12 @@ from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
 from airflow.operators.python_operator import PythonOperator
 
 PROJECT_ID = os.environ.get('GCP_PROJECT_ID')
-BUCKET = os.environ.get("GCP_GCS_BUCKET")
+BUCKET_ID = os.environ.get("GCP_GCS_BUCKET")
+
+INTERVAL=2
+DATE=3
+API_KEY=4
+SPARK_MASTER=5
 
 default_args = {
     "owner": "airflow",
@@ -40,8 +45,15 @@ hello_world = PythonOperator(
     retry_delay = timedelta(seconds=30)
 )
 spark_load_data = SparkSubmitOperator(
+    dag = dag,
     task_id = 'spark_load_stock_data',
-    application = ''
+    conn_id = 'spark_default',
+    verbose=1,
+    # application = '/opt/bitnami/spark/app/load_data.py',
+    application = '/opt/spark/app/load_data.py',
+    # conf = {"spark.master":SPARK_MASTER},
+    # application_args=[INTERVAL, DATE, API_KEY, BUCKET_ID],
+    retry_delay = timedelta(seconds=30)
 )
 
-hello_world
+hello_world >> spark_load_data

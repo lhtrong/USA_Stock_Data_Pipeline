@@ -8,10 +8,10 @@ from pyspark.sql import types
 import logging
 
 # credentials_location = './credentials/service-account-key.json'
-MASTER_URI="spark://spark:7077"
+
 
 conf = SparkConf() \
-    .setAppName('test') \
+    .setAppName('SparkUploadData') \
     .set("spark.hadoop.google.cloud.auth.service.account.enable", "true") 
     # .set("spark.hadoop.google.cloud.auth.service.account.json.keyfile", credentials_location)
 
@@ -25,7 +25,7 @@ hadoop_conf.set("fs.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSy
 hadoop_conf.set("fs.gs.auth.service.account.enable", "true")
 
 spark = SparkSession.builder \
-    .master(MASTER_URI) \
+    .master("spark://spark:7077") \
     .config(conf=sc.getConf()) \
     .getOrCreate()
 

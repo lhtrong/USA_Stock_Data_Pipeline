@@ -29,3 +29,5 @@ spark-submit \
     --file ~/credentials/service-account-key.json
     --master="spark://3e8f25e6cafe:7077"\
     app/load_data.py 
+
+nameserver 8.8.8.8

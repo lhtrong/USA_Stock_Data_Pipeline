@@ -1,0 +1,153 @@
+[2023-05-09T03:49:30.594+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: upload_to_gcs.spark_load_stock_data manual__2023-05-09T03:49:28.025103+00:00 [queued]>
+[2023-05-09T03:49:30.602+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: upload_to_gcs.spark_load_stock_data manual__2023-05-09T03:49:28.025103+00:00 [queued]>
+[2023-05-09T03:49:30.602+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2023-05-09T03:49:30.641+0000] {taskinstance.py:1350} INFO - Executing <Task(SparkSubmitOperator): spark_load_stock_data> on 2023-05-09 03:49:28.025103+00:00
+[2023-05-09T03:49:30.646+0000] {standard_task_runner.py:57} INFO - Started process 100 to run task
+[2023-05-09T03:49:30.648+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'upload_to_gcs', 'spark_load_stock_data', 'manual__2023-05-09T03:49:28.025103+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/upload_to_gcs.py', '--cfg-path', '/tmp/tmpigr2i9p8']
+[2023-05-09T03:49:30.648+0000] {standard_task_runner.py:85} INFO - Job 56: Subtask spark_load_stock_data
+[2023-05-09T03:49:30.682+0000] {task_command.py:410} INFO - Running <TaskInstance: upload_to_gcs.spark_load_stock_data manual__2023-05-09T03:49:28.025103+00:00 [running]> on host 872098f48f0d
+[2023-05-09T03:49:30.739+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='upload_to_gcs' AIRFLOW_CTX_TASK_ID='spark_load_stock_data' AIRFLOW_CTX_EXECUTION_DATE='2023-05-09T03:49:28.025103+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-09T03:49:28.025103+00:00'
+[2023-05-09T03:49:30.745+0000] {base.py:73} INFO - Using connection ID 'spark_default' for task execution.
+[2023-05-09T03:49:30.746+0000] {spark_submit.py:339} INFO - Spark-Submit cmd: spark-submit --master localhost:8090 --name arrow-spark --verbose /opt/spark/app/load_data.py
+[2023-05-09T03:49:30.762+0000] {spark_submit.py:490} INFO - /opt/***/spark/spark-3.4.0-bin-hadoop3/bin/load-spark-env.sh: line 68: ps: command not found
+[2023-05-09T03:49:33.160+0000] {spark_submit.py:490} INFO - Using properties file: null
+[2023-05-09T03:49:33.302+0000] {spark_submit.py:490} INFO - Parsed arguments:
+[2023-05-09T03:49:33.302+0000] {spark_submit.py:490} INFO - master                  localhost:8090
+[2023-05-09T03:49:33.302+0000] {spark_submit.py:490} INFO - remote                  null
+[2023-05-09T03:49:33.302+0000] {spark_submit.py:490} INFO - deployMode              null
+[2023-05-09T03:49:33.302+0000] {spark_submit.py:490} INFO - executorMemory          null
+[2023-05-09T03:49:33.302+0000] {spark_submit.py:490} INFO - executorCores           null
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - totalExecutorCores      null
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - propertiesFile          null
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - driverMemory            null
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - driverCores             null
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - driverExtraClassPath    null
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - driverExtraLibraryPath  null
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - driverExtraJavaOptions  null
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - supervise               false
+[2023-05-09T03:49:33.303+0000] {spark_submit.py:490} INFO - queue                   null
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - numExecutors            null
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - files                   null
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - pyFiles                 null
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - archives                null
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - mainClass               null
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - primaryResource         file:/opt/spark/app/load_data.py
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - name                    arrow-spark
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - childArgs               []
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - jars                    null
+[2023-05-09T03:49:33.304+0000] {spark_submit.py:490} INFO - packages                null
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - packagesExclusions      null
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - repositories            null
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - verbose                 true
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - 
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - Spark properties used, including those specified through
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - --conf and those from the properties file null:
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - 
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - 
+[2023-05-09T03:49:33.305+0000] {spark_submit.py:490} INFO - 
+[2023-05-09T03:49:33.632+0000] {spark_submit.py:490} INFO - Main class:
+[2023-05-09T03:49:33.632+0000] {spark_submit.py:490} INFO - org.apache.spark.deploy.PythonRunner
+[2023-05-09T03:49:33.632+0000] {spark_submit.py:490} INFO - Arguments:
+[2023-05-09T03:49:33.632+0000] {spark_submit.py:490} INFO - file:/opt/spark/app/load_data.py
+[2023-05-09T03:49:33.632+0000] {spark_submit.py:490} INFO - null
+[2023-05-09T03:49:33.636+0000] {spark_submit.py:490} INFO - Spark config:
+[2023-05-09T03:49:33.636+0000] {spark_submit.py:490} INFO - (spark.app.name,arrow-spark)
+[2023-05-09T03:49:33.636+0000] {spark_submit.py:490} INFO - (spark.app.submitTime,1683604173615)
+[2023-05-09T03:49:33.637+0000] {spark_submit.py:490} INFO - (spark.master,localhost:8090)
+[2023-05-09T03:49:33.637+0000] {spark_submit.py:490} INFO - (spark.submit.deployMode,client)
+[2023-05-09T03:49:33.637+0000] {spark_submit.py:490} INFO - (spark.submit.pyFiles,)
+[2023-05-09T03:49:33.637+0000] {spark_submit.py:490} INFO - Classpath elements:
+[2023-05-09T03:49:33.637+0000] {spark_submit.py:490} INFO - 
+[2023-05-09T03:49:33.637+0000] {spark_submit.py:490} INFO - 
+[2023-05-09T03:49:33.637+0000] {spark_submit.py:490} INFO - 
+[2023-05-09T03:49:35.247+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO SparkContext: Running Spark version 3.4.0
+[2023-05-09T03:49:35.348+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2023-05-09T03:49:35.490+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO ResourceUtils: ==============================================================
+[2023-05-09T03:49:35.490+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2023-05-09T03:49:35.491+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO ResourceUtils: ==============================================================
+[2023-05-09T03:49:35.491+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO SparkContext: Submitted application: SparkUploadData
+[2023-05-09T03:49:35.541+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2023-05-09T03:49:35.562+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO ResourceProfile: Limiting resource is cpu
+[2023-05-09T03:49:35.563+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2023-05-09T03:49:35.667+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO SecurityManager: Changing view acls to: default
+[2023-05-09T03:49:35.668+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO SecurityManager: Changing modify acls to: default
+[2023-05-09T03:49:35.668+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO SecurityManager: Changing view acls groups to:
+[2023-05-09T03:49:35.669+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO SecurityManager: Changing modify acls groups to:
+[2023-05-09T03:49:35.669+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:35 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: default; groups with view permissions: EMPTY; users with modify permissions: default; groups with modify permissions: EMPTY
+[2023-05-09T03:49:36.015+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO Utils: Successfully started service 'sparkDriver' on port 38349.
+[2023-05-09T03:49:36.269+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO SparkEnv: Registering MapOutputTracker
+[2023-05-09T03:49:36.305+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO SparkEnv: Registering BlockManagerMaster
+[2023-05-09T03:49:36.326+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2023-05-09T03:49:36.327+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2023-05-09T03:49:36.330+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2023-05-09T03:49:36.348+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-94824258-2abd-491b-aa00-f5643f680123
+[2023-05-09T03:49:36.366+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2023-05-09T03:49:36.382+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO SparkEnv: Registering OutputCommitCoordinator
+[2023-05-09T03:49:36.546+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2023-05-09T03:49:36.694+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2023-05-09T03:49:36.795+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 ERROR SparkContext: Error initializing SparkContext.
+[2023-05-09T03:49:36.796+0000] {spark_submit.py:490} INFO - org.apache.spark.SparkException: Could not parse Master URL: 'localhost:8090'
+[2023-05-09T03:49:36.796+0000] {spark_submit.py:490} INFO - at org.apache.spark.SparkContext$.org$apache$spark$SparkContext$$createTaskScheduler(SparkContext.scala:3033)
+[2023-05-09T03:49:36.796+0000] {spark_submit.py:490} INFO - at org.apache.spark.SparkContext.<init>(SparkContext.scala:568)
+[2023-05-09T03:49:36.797+0000] {spark_submit.py:490} INFO - at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2023-05-09T03:49:36.797+0000] {spark_submit.py:490} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2023-05-09T03:49:36.797+0000] {spark_submit.py:490} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+[2023-05-09T03:49:36.798+0000] {spark_submit.py:490} INFO - at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2023-05-09T03:49:36.798+0000] {spark_submit.py:490} INFO - at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+[2023-05-09T03:49:36.798+0000] {spark_submit.py:490} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2023-05-09T03:49:36.798+0000] {spark_submit.py:490} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2023-05-09T03:49:36.799+0000] {spark_submit.py:490} INFO - at py4j.Gateway.invoke(Gateway.java:238)
+[2023-05-09T03:49:36.799+0000] {spark_submit.py:490} INFO - at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2023-05-09T03:49:36.799+0000] {spark_submit.py:490} INFO - at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2023-05-09T03:49:36.799+0000] {spark_submit.py:490} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2023-05-09T03:49:36.800+0000] {spark_submit.py:490} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2023-05-09T03:49:36.800+0000] {spark_submit.py:490} INFO - at java.base/java.lang.Thread.run(Thread.java:834)
+[2023-05-09T03:49:36.800+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2023-05-09T03:49:36.824+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO SparkUI: Stopped Spark web UI at http://872098f48f0d:4040
+[2023-05-09T03:49:36.845+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2023-05-09T03:49:36.853+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO MemoryStore: MemoryStore cleared
+[2023-05-09T03:49:36.854+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO BlockManager: BlockManager stopped
+[2023-05-09T03:49:36.861+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2023-05-09T03:49:36.861+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 WARN MetricsSystem: Stopping a MetricsSystem that is not running
+[2023-05-09T03:49:36.864+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2023-05-09T03:49:36.870+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO SparkContext: Successfully stopped SparkContext
+[2023-05-09T03:49:36.870+0000] {spark_submit.py:490} INFO - Traceback (most recent call last):
+[2023-05-09T03:49:36.870+0000] {spark_submit.py:490} INFO - File "/opt/spark/app/load_data.py", line 18, in <module>
+[2023-05-09T03:49:36.870+0000] {spark_submit.py:490} INFO - sc = SparkContext(conf=conf)
+[2023-05-09T03:49:36.870+0000] {spark_submit.py:490} INFO - File "/opt/***/spark/spark-3.4.0-bin-hadoop3/python/lib/pyspark.zip/pyspark/context.py", line 200, in __init__
+[2023-05-09T03:49:36.870+0000] {spark_submit.py:490} INFO - File "/opt/***/spark/spark-3.4.0-bin-hadoop3/python/lib/pyspark.zip/pyspark/context.py", line 287, in _do_init
+[2023-05-09T03:49:36.871+0000] {spark_submit.py:490} INFO - File "/opt/***/spark/spark-3.4.0-bin-hadoop3/python/lib/pyspark.zip/pyspark/context.py", line 417, in _initialize_context
+[2023-05-09T03:49:36.871+0000] {spark_submit.py:490} INFO - File "/opt/***/spark/spark-3.4.0-bin-hadoop3/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1587, in __call__
+[2023-05-09T03:49:36.871+0000] {spark_submit.py:490} INFO - File "/opt/***/spark/spark-3.4.0-bin-hadoop3/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2023-05-09T03:49:36.871+0000] {spark_submit.py:490} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+[2023-05-09T03:49:36.871+0000] {spark_submit.py:490} INFO - : org.apache.spark.SparkException: Could not parse Master URL: 'localhost:8090'
+[2023-05-09T03:49:36.871+0000] {spark_submit.py:490} INFO - at org.apache.spark.SparkContext$.org$apache$spark$SparkContext$$createTaskScheduler(SparkContext.scala:3033)
+[2023-05-09T03:49:36.871+0000] {spark_submit.py:490} INFO - at org.apache.spark.SparkContext.<init>(SparkContext.scala:568)
+[2023-05-09T03:49:36.872+0000] {spark_submit.py:490} INFO - at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2023-05-09T03:49:36.872+0000] {spark_submit.py:490} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2023-05-09T03:49:36.872+0000] {spark_submit.py:490} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+[2023-05-09T03:49:36.872+0000] {spark_submit.py:490} INFO - at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2023-05-09T03:49:36.872+0000] {spark_submit.py:490} INFO - at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+[2023-05-09T03:49:36.872+0000] {spark_submit.py:490} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2023-05-09T03:49:36.872+0000] {spark_submit.py:490} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2023-05-09T03:49:36.873+0000] {spark_submit.py:490} INFO - at py4j.Gateway.invoke(Gateway.java:238)
+[2023-05-09T03:49:36.873+0000] {spark_submit.py:490} INFO - at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2023-05-09T03:49:36.873+0000] {spark_submit.py:490} INFO - at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2023-05-09T03:49:36.873+0000] {spark_submit.py:490} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2023-05-09T03:49:36.873+0000] {spark_submit.py:490} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2023-05-09T03:49:36.873+0000] {spark_submit.py:490} INFO - at java.base/java.lang.Thread.run(Thread.java:834)
+[2023-05-09T03:49:36.873+0000] {spark_submit.py:490} INFO - 
+[2023-05-09T03:49:36.941+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO ShutdownHookManager: Shutdown hook called
+[2023-05-09T03:49:36.941+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-6ffe7af1-049c-43b9-8e67-86a21b275754
+[2023-05-09T03:49:36.944+0000] {spark_submit.py:490} INFO - 23/05/09 03:49:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-31ca0ac8-9f1a-4413-80c2-ac4ad036f56f
+[2023-05-09T03:49:37.014+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 157, in execute
+    self._hook.submit(self._application)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 421, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master localhost:8090 --name arrow-spark --verbose /opt/spark/app/load_data.py. Error code is: 1.
+[2023-05-09T03:49:37.025+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=upload_to_gcs, task_id=spark_load_stock_data, execution_date=20230509T034928, start_date=20230509T034930, end_date=20230509T034937
+[2023-05-09T03:49:37.057+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 56 for task spark_load_stock_data (Cannot execute: spark-submit --master localhost:8090 --name arrow-spark --verbose /opt/spark/app/load_data.py. Error code is: 1.; 100)
+[2023-05-09T03:49:37.069+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-09T03:49:37.086+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
