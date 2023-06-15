@@ -1,0 +1,33 @@
+[2023-06-15T16:25:29.172+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task manual__2023-06-15T16:24:59.360547+00:00 [queued]>
+[2023-06-15T16:25:29.185+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task manual__2023-06-15T16:24:59.360547+00:00 [queued]>
+[2023-06-15T16:25:29.185+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-06-15T16:25:29.200+0000] {taskinstance.py:1327} INFO - Executing <Task(BigQueryCreateExternalTableOperator): bq_2022_tripdata_external_table_task> on 2023-06-15 16:24:59.360547+00:00
+[2023-06-15T16:25:29.206+0000] {standard_task_runner.py:57} INFO - Started process 2051 to run task
+[2023-06-15T16:25:29.209+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gcs_2_bq_dag', 'bq_2022_tripdata_external_table_task', 'manual__2023-06-15T16:24:59.360547+00:00', '--job-id', '537', '--raw', '--subdir', 'DAGS_FOLDER/gcs_to_bq.py', '--cfg-path', '/tmp/tmpy5q82qfs']
+[2023-06-15T16:25:29.211+0000] {standard_task_runner.py:85} INFO - Job 537: Subtask bq_2022_tripdata_external_table_task
+[2023-06-15T16:25:29.267+0000] {task_command.py:410} INFO - Running <TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task manual__2023-06-15T16:24:59.360547+00:00 [running]> on host 659e337ed365
+[2023-06-15T16:25:29.335+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gcs_2_bq_dag' AIRFLOW_CTX_TASK_ID='bq_2022_tripdata_external_table_task' AIRFLOW_CTX_EXECUTION_DATE='2023-06-15T16:24:59.360547+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-06-15T16:24:59.360547+00:00'
+[2023-06-15T16:25:29.348+0000] {base.py:73} INFO - Using connection ID 'gcloud' for task execution.
+[2023-06-15T16:25:30.525+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1612, in execute
+    table = bq_hook.create_empty_table(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/common/hooks/base_google.py", line 468, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 406, in create_empty_table
+    return self.get_client(project_id=project_id, location=location).create_table(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 748, in create_table
+    api_response = self._call_api(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 782, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 283, in retry_wrapped_func
+    return retry_target(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 190, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_http/__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/dtc-de-382609/datasets/stock_table/tables?prettyPrint=false: Error while reading table: 2022_tripdata, error message: Failed to expand table 2022_tripdata with file pattern gs://dtc-de-382609_bucket/stock_data/2022/*: matched no files. File: gs://dtc-de-382609_bucket/stock_data/2022/*
+[2023-06-15T16:25:30.557+0000] {taskinstance.py:1345} INFO - Marking task as UP_FOR_RETRY. dag_id=gcs_2_bq_dag, task_id=bq_2022_tripdata_external_table_task, execution_date=20230615T162459, start_date=20230615T162529, end_date=20230615T162530
+[2023-06-15T16:25:30.588+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 537 for task bq_2022_tripdata_external_table_task (400 POST https://bigquery.googleapis.com/bigquery/v2/projects/dtc-de-382609/datasets/stock_table/tables?prettyPrint=false: Error while reading table: 2022_tripdata, error message: Failed to expand table 2022_tripdata with file pattern gs://dtc-de-382609_bucket/stock_data/2022/*: matched no files. File: gs://dtc-de-382609_bucket/stock_data/2022/*; 2051)
+[2023-06-15T16:25:30.627+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-15T16:25:30.646+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

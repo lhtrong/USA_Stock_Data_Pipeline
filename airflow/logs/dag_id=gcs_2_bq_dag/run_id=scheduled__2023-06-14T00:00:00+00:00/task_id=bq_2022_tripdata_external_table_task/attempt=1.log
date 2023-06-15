@@ -1,0 +1,85 @@
+[2023-06-15T14:09:40.930+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [queued]>
+[2023-06-15T14:09:40.941+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [queued]>
+[2023-06-15T14:09:40.941+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-06-15T14:09:40.956+0000] {taskinstance.py:1327} INFO - Executing <Task(BigQueryCreateExternalTableOperator): bq_2022_tripdata_external_table_task> on 2023-06-14 00:00:00+00:00
+[2023-06-15T14:09:40.962+0000] {standard_task_runner.py:57} INFO - Started process 61 to run task
+[2023-06-15T14:09:40.965+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gcs_2_bq_dag', 'bq_2022_tripdata_external_table_task', 'scheduled__2023-06-14T00:00:00+00:00', '--job-id', '475', '--raw', '--subdir', 'DAGS_FOLDER/gcs_to_bq.py', '--cfg-path', '/tmp/tmpsj2f_t39']
+[2023-06-15T14:09:40.967+0000] {standard_task_runner.py:85} INFO - Job 475: Subtask bq_2022_tripdata_external_table_task
+[2023-06-15T14:09:41.016+0000] {task_command.py:410} INFO - Running <TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [running]> on host 659e337ed365
+[2023-06-15T14:09:41.108+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gcs_2_bq_dag' AIRFLOW_CTX_TASK_ID='bq_2022_tripdata_external_table_task' AIRFLOW_CTX_EXECUTION_DATE='2023-06-14T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-06-14T00:00:00+00:00'
+[2023-06-15T14:09:41.128+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1606, in execute
+    bq_hook = BigQueryHook(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 105, in __init__
+    super().__init__(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/common/hooks/base_google.py", line 234, in __init__
+    self.extras: dict = self.get_connection(self.gcp_conn_id).extra_dejson
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/connection.py", line 434, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `google_cloud_default` isn't defined
+[2023-06-15T14:09:41.133+0000] {taskinstance.py:1345} INFO - Marking task as UP_FOR_RETRY. dag_id=gcs_2_bq_dag, task_id=bq_2022_tripdata_external_table_task, execution_date=20230614T000000, start_date=20230615T140940, end_date=20230615T140941
+[2023-06-15T14:09:41.144+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 475 for task bq_2022_tripdata_external_table_task (The conn_id `google_cloud_default` isn't defined; 61)
+[2023-06-15T14:09:41.176+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-15T14:09:41.192+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-06-15T15:21:32.391+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [queued]>
+[2023-06-15T15:21:32.404+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [queued]>
+[2023-06-15T15:21:32.404+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-06-15T15:21:32.419+0000] {taskinstance.py:1327} INFO - Executing <Task(BigQueryCreateExternalTableOperator): bq_2022_tripdata_external_table_task> on 2023-06-14 00:00:00+00:00
+[2023-06-15T15:21:32.426+0000] {standard_task_runner.py:57} INFO - Started process 1059 to run task
+[2023-06-15T15:21:32.429+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gcs_2_bq_dag', 'bq_2022_tripdata_external_table_task', 'scheduled__2023-06-14T00:00:00+00:00', '--job-id', '491', '--raw', '--subdir', 'DAGS_FOLDER/gcs_to_bq.py', '--cfg-path', '/tmp/tmp8y3pll9q']
+[2023-06-15T15:21:32.432+0000] {standard_task_runner.py:85} INFO - Job 491: Subtask bq_2022_tripdata_external_table_task
+[2023-06-15T15:21:32.476+0000] {task_command.py:410} INFO - Running <TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [running]> on host 659e337ed365
+[2023-06-15T15:21:32.548+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gcs_2_bq_dag' AIRFLOW_CTX_TASK_ID='bq_2022_tripdata_external_table_task' AIRFLOW_CTX_EXECUTION_DATE='2023-06-14T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-06-14T00:00:00+00:00'
+[2023-06-15T15:21:32.565+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1606, in execute
+    bq_hook = BigQueryHook(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 105, in __init__
+    super().__init__(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/common/hooks/base_google.py", line 234, in __init__
+    self.extras: dict = self.get_connection(self.gcp_conn_id).extra_dejson
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/connection.py", line 434, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `google_cloud_default` isn't defined
+[2023-06-15T15:21:32.569+0000] {taskinstance.py:1345} INFO - Marking task as UP_FOR_RETRY. dag_id=gcs_2_bq_dag, task_id=bq_2022_tripdata_external_table_task, execution_date=20230614T000000, start_date=20230615T152132, end_date=20230615T152132
+[2023-06-15T15:21:32.578+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 491 for task bq_2022_tripdata_external_table_task (The conn_id `google_cloud_default` isn't defined; 1059)
+[2023-06-15T15:21:32.601+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-15T15:21:32.628+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-06-15T16:15:37.753+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [queued]>
+[2023-06-15T16:15:37.772+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [queued]>
+[2023-06-15T16:15:37.773+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-06-15T16:15:37.793+0000] {taskinstance.py:1327} INFO - Executing <Task(BigQueryCreateExternalTableOperator): bq_2022_tripdata_external_table_task> on 2023-06-14 00:00:00+00:00
+[2023-06-15T16:15:37.802+0000] {standard_task_runner.py:57} INFO - Started process 1849 to run task
+[2023-06-15T16:15:37.806+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gcs_2_bq_dag', 'bq_2022_tripdata_external_table_task', 'scheduled__2023-06-14T00:00:00+00:00', '--job-id', '513', '--raw', '--subdir', 'DAGS_FOLDER/gcs_to_bq.py', '--cfg-path', '/tmp/tmpl5htcam6']
+[2023-06-15T16:15:37.809+0000] {standard_task_runner.py:85} INFO - Job 513: Subtask bq_2022_tripdata_external_table_task
+[2023-06-15T16:15:37.888+0000] {task_command.py:410} INFO - Running <TaskInstance: gcs_2_bq_dag.bq_2022_tripdata_external_table_task scheduled__2023-06-14T00:00:00+00:00 [running]> on host 659e337ed365
+[2023-06-15T16:15:38.026+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gcs_2_bq_dag' AIRFLOW_CTX_TASK_ID='bq_2022_tripdata_external_table_task' AIRFLOW_CTX_EXECUTION_DATE='2023-06-14T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-06-14T00:00:00+00:00'
+[2023-06-15T16:15:38.049+0000] {base.py:73} INFO - Using connection ID 'gcloud' for task execution.
+[2023-06-15T16:15:39.666+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1612, in execute
+    table = bq_hook.create_empty_table(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/common/hooks/base_google.py", line 468, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 406, in create_empty_table
+    return self.get_client(project_id=project_id, location=location).create_table(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 748, in create_table
+    api_response = self._call_api(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 782, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 283, in retry_wrapped_func
+    return retry_target(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 190, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_http/__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/dtc-de-382609/datasets/stock_table/tables?prettyPrint=false: Error while reading table: 2022_tripdata_external_table, error message: Failed to expand table 2022_tripdata_external_table with file pattern gs://dtc-de-382609_bucket/stock_data/2022/*: matched no files. File: gs://dtc-de-382609_bucket/stock_data/2022/*
+[2023-06-15T16:15:39.676+0000] {taskinstance.py:1345} INFO - Marking task as UP_FOR_RETRY. dag_id=gcs_2_bq_dag, task_id=bq_2022_tripdata_external_table_task, execution_date=20230614T000000, start_date=20230615T161537, end_date=20230615T161539
+[2023-06-15T16:15:39.687+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 513 for task bq_2022_tripdata_external_table_task (400 POST https://bigquery.googleapis.com/bigquery/v2/projects/dtc-de-382609/datasets/stock_table/tables?prettyPrint=false: Error while reading table: 2022_tripdata_external_table, error message: Failed to expand table 2022_tripdata_external_table with file pattern gs://dtc-de-382609_bucket/stock_data/2022/*: matched no files. File: gs://dtc-de-382609_bucket/stock_data/2022/*; 1849)
+[2023-06-15T16:15:39.702+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-15T16:15:39.723+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

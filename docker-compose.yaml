@@ -74,6 +74,7 @@ x-airflow-common:
     # WARNING: Use _PIP_ADDITIONAL_REQUIREMENTS option ONLY for a quick checks
     # for other purpose (development, test and especially production usage) build/extend Airflow image.
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+  
   volumes:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
@@ -87,6 +88,8 @@ x-airflow-common:
       condition: service_healthy
     postgres:
       condition: service_healthy
+  env_file:
+    - ./.env 
   networks:
   - usa_stock
 
@@ -125,9 +128,10 @@ services:
 
 
   spark:
-    build: 
-      context: ./spark
-      dockerfile: ./Dockerfile
+    # build: 
+    #   context: ./spark
+    #   dockerfile: ./Dockerfile
+    image: usa-company-stock-price_spark
     command: >
      bash -c "/opt/bitnami/spark/spark/spark-3.4.0-bin-hadoop3/sbin/start-master.sh -h spark -p 7077
               &&spark-submit app/load_data.py"
@@ -148,9 +152,10 @@ services:
       - usa_stock
     
   spark-worker:
-    build: 
-      context: ./spark
-      dockerfile: ./Dockerfile
+    # build: 
+    #   context: ./spark
+    #   dockerfile: ./Dockerfile
+    image: usa-company-stock-price_spark-worker
     command: >
       bash -c "/opt/bitnami/spark/spark/spark-3.4.0-bin-hadoop3/sbin/start-worker.sh spark://spark:7077"
     # image: bitnami/spark

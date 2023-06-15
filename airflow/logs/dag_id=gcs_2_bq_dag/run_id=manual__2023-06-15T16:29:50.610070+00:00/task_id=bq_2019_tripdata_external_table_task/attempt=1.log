@@ -1,0 +1,13 @@
+[2023-06-15T16:30:09.465+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2019_tripdata_external_table_task manual__2023-06-15T16:29:50.610070+00:00 [queued]>
+[2023-06-15T16:30:09.479+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gcs_2_bq_dag.bq_2019_tripdata_external_table_task manual__2023-06-15T16:29:50.610070+00:00 [queued]>
+[2023-06-15T16:30:09.480+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-06-15T16:30:09.499+0000] {taskinstance.py:1327} INFO - Executing <Task(BigQueryCreateExternalTableOperator): bq_2019_tripdata_external_table_task> on 2023-06-15 16:29:50.610070+00:00
+[2023-06-15T16:30:09.509+0000] {standard_task_runner.py:57} INFO - Started process 2126 to run task
+[2023-06-15T16:30:09.512+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gcs_2_bq_dag', 'bq_2019_tripdata_external_table_task', 'manual__2023-06-15T16:29:50.610070+00:00', '--job-id', '538', '--raw', '--subdir', 'DAGS_FOLDER/gcs_to_bq.py', '--cfg-path', '/tmp/tmpm80uq20a']
+[2023-06-15T16:30:09.515+0000] {standard_task_runner.py:85} INFO - Job 538: Subtask bq_2019_tripdata_external_table_task
+[2023-06-15T16:30:09.653+0000] {task_command.py:410} INFO - Running <TaskInstance: gcs_2_bq_dag.bq_2019_tripdata_external_table_task manual__2023-06-15T16:29:50.610070+00:00 [running]> on host 659e337ed365
+[2023-06-15T16:30:09.819+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gcs_2_bq_dag' AIRFLOW_CTX_TASK_ID='bq_2019_tripdata_external_table_task' AIRFLOW_CTX_EXECUTION_DATE='2023-06-15T16:29:50.610070+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-06-15T16:29:50.610070+00:00'
+[2023-06-15T16:30:09.848+0000] {base.py:73} INFO - Using connection ID 'gcloud' for task execution.
+[2023-06-15T16:30:12.045+0000] {taskinstance.py:1345} INFO - Marking task as SUCCESS. dag_id=gcs_2_bq_dag, task_id=bq_2019_tripdata_external_table_task, execution_date=20230615T162950, start_date=20230615T163009, end_date=20230615T163012
+[2023-06-15T16:30:12.092+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-15T16:30:12.111+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

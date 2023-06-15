@@ -1,2 +1,4 @@
 pyspark
 apache-airflow-providers-apache-spark
+apache-airflow-providers-google
+apache-airflow

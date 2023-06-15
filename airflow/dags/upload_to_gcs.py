@@ -9,18 +9,17 @@ from datetime import datetime, timedelta
 # from airflow.providers.google.cloud.transfer.gcs_to_gcs import GCSToGCSOperator
 from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
 from airflow.operators.python_operator import PythonOperator
+from airflow.models.variable import Variable
 
-PROJECT_ID = os.environ.get('GCP_PROJECT_ID')
-BUCKET_ID = os.environ.get("GCP_GCS_BUCKET")
 
-INTERVAL=2
-DATE=3
-API_KEY=4
-SPARK_MASTER=5
+
+GCP_PROJECT_ID=os.getenv("GCP_PROJECT_ID", "project_id")
+GCP_BUCKET_ID=os.getenv("GCP_BUCKET_ID", "bucket")
+API_KEY=os.getenv("API_KEY", "api")
 
 default_args = {
     "owner": "airflow",
-    "start_date": days_ago(1),
+    "start_date":datetime(2019,1,10),
     "depends_on_past": False,
     "retries": 1,
 }
@@ -29,7 +28,7 @@ dag =  DAG(
     dag_id = "upload_to_gcs",
     schedule_interval="@daily",
     default_args = default_args,
-    catchup = False,
+    catchup = True,
     max_active_runs = 1,
 )
 
@@ -52,8 +51,8 @@ spark_load_data = SparkSubmitOperator(
     # application = '/opt/bitnami/spark/app/load_data.py',
     application = '/opt/spark/app/load_data.py',
     # conf = {"spark.master":SPARK_MASTER},
-    # application_args=[INTERVAL, DATE, API_KEY, BUCKET_ID],
-    retry_delay = timedelta(seconds=30)
+    application_args=['{{ds}}', API_KEY,GCP_BUCKET_ID],
+    retry_delay = timedelta(seconds=60)
 )
 
 hello_world >> spark_load_data

@@ -6,6 +6,8 @@ from pyspark.conf import SparkConf
 from pyspark.sql import functions as F
 from pyspark.sql import types
 import logging
+import sys
+import argparse
 
 # credentials_location = './credentials/service-account-key.json'
 
@@ -31,6 +33,12 @@ spark = SparkSession.builder \
 
 
 
+DATE = sys.argv[1]
+[YEAR, MONTH, _] = DATE.split("-")
+API_KEY = sys.argv[2]
+GCP_BUCKET_ID = sys.argv[3]
+
+
 symbol = ['AAPL', 'MSFT', 'GOOG', 'AMZN', 'TSLA', 'META', 'NFLX', 'NVDA']
 
 url = 'https://api.twelvedata.com/time_series'
@@ -48,7 +56,7 @@ schema = types.StructType([
 df_res = spark.createDataFrame([], schema = schema)
 try: 
     for sym in symbol:
-        params = {'symbol': sym, 'interval': '1h','date':'2019-01-10', 'apikey': '2efb4e0c80a041b794abaf4369e76869', 'timezone':'America/New_York'}
+        params = {'symbol': sym, 'interval': '1h','date':DATE, 'apikey': API_KEY, 'timezone':'America/New_York'}
 
         response = requests.get(url, params=params)
 
@@ -68,10 +76,12 @@ try:
             print('Error:', response.status_code, response.text)
     col_order = ["datetime", "symbol", "open", "high", "low", "close", "volume"]
     df_res = df_res.select(*col_order)
-    df_res.coalesce(1).write.mode("overwrite").parquet("gs://dtc-de-382609_bucket/stock_data/2019/01")
+    df_res.coalesce(1).write.mode("append").parquet(f'gs://{GCP_BUCKET_ID}/stock_data/{YEAR}/{MONTH}')
+
+    df = spark.read.format("parquet").load(f'gs://{GCP_BUCKET_ID}/stock_data/{YEAR}/*')
+    df.show()
+
 except:
     logging.error('Something error')
 
-df = spark.read.format("parquet").load("gs://dtc-de-382609_bucket/stock_data/2019/*")
-df.show()
 
